@@ -19,3 +19,37 @@ def dna2rna(dna):
             rna = rna + 'C'
     return rna
 
+def reverse_complement(dna):
+    result = ''
+    for symbol in dna:
+        if symbol == 'A':
+            result = result + 'T'
+        elif symbol == 'T':
+            result = result + 'A'
+        elif symbol == 'C':
+            result = result + 'G'
+        elif symbol == 'G':
+            result = result + 'C'
+    return result[::-1] 
+
+def mendels_law(hom, het, rec):
+    total = hom + het + rec
+    event = total * (total - 1)
+    homxhom = hom * (hom - 1) / event
+    hetxhet = 3/4 * het * (het - 1) / event
+    homxhet = 2 * het * hom / event
+    homxrec = 2 * hom * rec / event
+    hetxrec = 2 * 0.5 * het * rec / event
+    probability = homxhom + hetxhet + homxhet + homxrec + hetxrec
+    return probability
+    
+ def fibonacci_rabbits(n, k):
+    f1 = 1
+    f2 = 1
+    for i in range(n - 1):
+        ft = f1
+        f1 = f1 + (f2*k)
+        f2 = ft
+    return f2
+
+    
